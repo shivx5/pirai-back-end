@@ -44,7 +44,7 @@ public class UserServiceImpl implements IUserService,UserDetailsService {
 		
 		Optional<User> opt=findByEmail(email);
 		//read user from database
-		if(opt.isEmpty())
+		if(!opt.isPresent())
 			throw new UsernameNotFoundException("User not Exist");
 		User user=opt.get();
 
